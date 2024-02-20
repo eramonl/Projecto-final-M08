@@ -1,10 +1,19 @@
 h1{
     background-color: aqua;
-    
+    text-align: center;
 }
+
+
+
 
 h4{
 
-    background-color: blueviolet;
+    background-color: aliceblue;
+    text-align: center;
+}
+
+
+h5{
+    background-color: chartreuse;
     text-align: center;
 }
