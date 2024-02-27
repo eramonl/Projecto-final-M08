@@ -57,5 +57,9 @@ def addmail():
 def paguinaPublica():
    return render_template('Paguina_publica.html')
 
+@app.route('/private' ,methods = ['POST', 'GET'])
+def paguinaprivada():
+   return render_template('Paguina_privada.html')
+
 if __name__ == '__main__':
    app.run(debug = True)

@@ -17,3 +17,9 @@ h5{
     background-color: chartreuse;
     text-align: center;
 }
+
+.recto{
+    float: left;
+    background-color: aquamarine;
+    padding-right: 10%;
+}
