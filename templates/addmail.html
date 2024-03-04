@@ -14,13 +14,13 @@
     <h1 id="titulo"> SERVEI ACTUALITZACIÓ MAIL</h1>
     <h3> Introdueix el nom i el correu electrònic que vols afegir</h3>
     <form action = "{{url_for('addmail')}}" method = "post">
-        <div class="mb-3 mt-3">
-            <label for="nom" class="form-label required">Nom:</label>
-            <input type="text" name="Nombre" id="Nombre" class="form-control" required/>
-        </div>
         <div class="mb-3">
             <label for="correu" class="form-label required">Correu electrònic:</label>
             <input type="email" name="correu" id="correu" class="form-control" required/>
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="nom" class="form-label required">Contraseña:</label>
+            <input type="text" name="Contraseña" id="Contraseña" class="form-control" required/>
         </div>
         <div class="form-check mb-3">
             <input type="checkbox" id="modif" name="modif" value="True" class="form-check-input"/>

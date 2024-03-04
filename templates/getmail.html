@@ -14,9 +14,9 @@
     <h1 id="titulo"> SERVEI CONSULTA MAIL</h1>
     <h3> Introdueix el nom per conèixer el correu electrònic</h3>
     <form action = "{{url_for('getmail')}}" method = "post">
-        <label for="nom" class="form-label required">Nom:</label>
-        <p><input type="text" name="Nombre" id="Nombre"  class="form-control" required/></p>
-        <p><input type = "submit" value = "CONSULTA" class="btn btn-primary"/></p>
+        <label for="Correo" class="form-label required">Correo:</label>
+        <p><input type="text" name="Correo" id="Correo"  class="form-control" required/></p>
+        <p><input type = "submit" value = "CONSULTA" class="btn btn-primary" /></p>
      </form>
      <h4 class="text-enlace">
         Pots afegir nous correus a l'enllaç <a href="{{url_for('addmail')}}" target="_blank">ADDMAIL</a>

@@ -34,11 +34,11 @@ def conectdb():
 
 # funció getmaildbt rep el nom com paràmetre i retorna el mail
 # si no el troba retorna un string "NOTROBAT"
-def getmaildb(nom):
+def getmaildb(correu):
       mydb = conectdb()
       if request.method == 'POST':
             mycursos = mydb.cursor()
-            mycursos.execute("SELECT Correo FROM alumnos WHERE Nombre = %s",(nom,))
+            mycursos.execute("SELECT Contraseña FROM alumnos WHERE Correo = %s",(correu,))
             myresult = mycursos.fetchall()
             if myresult:
                   for x in myresult:
@@ -50,11 +50,11 @@ def getmaildb(nom):
 # si ja existeix retorna un string "JAEXISTEIX"
 # quan va bé retorna string "AFEGIT"
 # si el paràmetre modif es True, quan ja existeix però és diferent, el modifica i retorna string "MODIFICAT"
-def addmaildb(nom,correu,modif=False):
+def addmaildb(contraseña,correu,modif=False):
       mydb = conectdb()
-      result = getmaildb(nom)
+      result = getmaildb(contraseña)
       mycursor = mydb.cursor()
-      mycursor.execute("INSERT INTO alumnos (Nombre, Correo) VALUES (%s, %s)", (nom, correu))
+      mycursor.execute("INSERT INTO alumnos (Contraseña, Correo) VALUES (%s, %s)", (contraseña, correu))
       mydb.commit()
       
       print("Usuario agregado correctamente.")

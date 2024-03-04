@@ -13,18 +13,15 @@
   <div class="container">
   <h1 id="titulo"> SERVEI CONSULTA MAIL</h1>
 {% if correu == "NOTROBAT" %}
-  <h2>El nom <b>{{ nom }}</b> no l'hem trobat a les nostres dades.</h2>
+  <h2>El correu <b>{{ correu }}</b> no l'hem trobat a les nostres dades.</h2>
 {% else %}
-  <h2>El correu per <b>{{ nom }}</b> és: <b>{{ correu }}</b> </h2>
+  <h2>El correu per <b>{{ Contraseña }}</b> és: <b>{{ correu }}</b> </h2>
 {% endif %}
 <h4 class="text-enlace">
   Pots fer una nova consulta a l'enllaç <a href="{{url_for('getmail')}}">GETMAIL</a>,
 </h4>
 <h4 class="text-enlace2">
-  o pots afegir nous correus a l'enllaç <a href="{{url_for('addmail')}}" target="_blank">ADDMAIL</a>
-</h4>
-<h4 class="text-enlace">
-   Pots afegir nous correus a l'enllaç <a href="{{url_for('Paguina_privada')}}" target="_blank">Puedes acceder</a>
+  o pots afegir nous correus a l'enllaç <a href="{{url_for('paguinaprivada')}}" target="_blank">Puedes Acceder</a>
 </h4>
 </div>
 </body>

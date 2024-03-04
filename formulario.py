@@ -32,10 +32,8 @@ app = Flask(__name__)
 @app.route('/getmail',methods = ['POST', 'GET'])
 def getmail():
    if request.method == 'POST':
-      nom = request.form['Nombre']
-      nom = nom.capitalize() #en majúscules la primera lletra
-      correu = mail_db.getmaildb(nom)
-      return render_template('resultadogettmail.html',nom=nom,correu=correu)
+      correu = request.form['correu']
+      return render_template('resultadogettmail.html', correu=correu)
    else:
       return render_template('getmail.html')
 
@@ -43,13 +41,12 @@ def getmail():
 def addmail():
    if request.method == 'POST':
       modif=False
-      nom = request.form['Nombre']  #ull! si no ve, això acaba amb error
-      nom=nom.capitalize()
+      contraseña = request.form['Contraseña']  #ull! si no ve, això acaba amb error
       correu = request.form['correu']
       if 'modif' in request.form: #el checkbox és opcional 
          modif = True
-      result_msg = mail_db.addmaildb(nom, correu, modif)
-      return render_template('resultadoaddmail.html',nom = nom, correu=correu,  result_msg = result_msg)
+      result_msg = mail_db.addmaildb(contraseña, correu, modif)
+      return render_template('Paguina_privada.html',contraseña = contraseña, correu=correu,  result_msg = result_msg)
    else:
       return render_template('addmail.html')
 
