@@ -35,7 +35,11 @@ def getmail():
       modif=False
       contraseña = request.form['Contraseña']
       correu = request.form['correu']
+      #comprobar si existe en BD
+      #si existe - LOGIN OK
+      #session['correu']=correu ----> Linea Buena
       return render_template('Paguina_privada.html', correu = correu, contraseña = contraseña)
+      #si no existe - redirect al getmail
    else:
       return render_template('getmail.html')
 
@@ -53,8 +57,11 @@ def addmail():
       return render_template('addmail.html')
 
 @app.route('/',methods = ['POST', 'GET'])
-def paguinaPublica():
-   return render_template('Paguina_publica.html')
+def paginaPublica():
+   if session.get('correu'):
+      return render_template('Paguina_privada.html', correu = session['correu'])
+   else:
+      return render_template('Paguina_publica.html')
 
 @app.route('/private' ,methods = ['POST', 'GET'])
 def paguinaprivada():
@@ -71,6 +78,13 @@ def flask():
 @app.route('/ej1' ,methods = ['POST', 'GET'])
 def ej1():
    return render_template('edad+100.py')
+
+
+@app.route('/logout')
+def logout():
+   if session.get('correu'):
+      session.pop('correu',default=None)
+   return redirect(url_for('paginaPublica'))
 
 if __name__ == '__main__':
    app.run(debug = True)
