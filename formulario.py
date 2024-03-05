@@ -32,8 +32,10 @@ app = Flask(__name__)
 @app.route('/getmail',methods = ['POST', 'GET'])
 def getmail():
    if request.method == 'POST':
+      modif=False
+      contraseña = request.form['Contraseña']
       correu = request.form['correu']
-      return render_template('resultadogettmail.html', correu=correu)
+      return render_template('Paguina_privada.html', correu = correu, contraseña = contraseña)
    else:
       return render_template('getmail.html')
 
@@ -50,13 +52,25 @@ def addmail():
    else:
       return render_template('addmail.html')
 
-@app.route('/login',methods = ['POST', 'GET'])
+@app.route('/',methods = ['POST', 'GET'])
 def paguinaPublica():
    return render_template('Paguina_publica.html')
 
 @app.route('/private' ,methods = ['POST', 'GET'])
 def paguinaprivada():
    return render_template('Paguina_privada.html')
+
+@app.route('/patatas' ,methods = ['POST', 'GET'])
+def patatas():
+   return render_template('patatas.html')
+
+@app.route('/flask' ,methods = ['POST', 'GET'])
+def flask():
+   return render_template('Practicas_flask.html')
+
+@app.route('/ej1' ,methods = ['POST', 'GET'])
+def ej1():
+   return render_template('edad+100.py')
 
 if __name__ == '__main__':
    app.run(debug = True)

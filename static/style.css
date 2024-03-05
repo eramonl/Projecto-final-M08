@@ -19,7 +19,35 @@ h5{
 }
 
 .recto{
+    list-style-type: none;
     float: left;
     background-color: aquamarine;
-    padding-right: 10%;
+    padding-left: 10%;
+    text-align: center;
+}
+
+body{
+    background-color: blanchedalmond
+}
+
+#subtitulo{
+    background-color: aquamarine;
+}
+
+#texto{
+    padding: left 25px;
+}
+
+#menu1{
+list-style-type: none;
+margin: 0%;
+padding: 0%;
+overflow: hidden;
+background-color: aquamarine;
+
+}
+
+#imagen_abuelita{
+    width: 300px;
+    margin-left: 25%;
 }

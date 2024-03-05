@@ -38,7 +38,7 @@ def getmaildb(correu):
       mydb = conectdb()
       if request.method == 'POST':
             mycursos = mydb.cursor()
-            mycursos.execute("SELECT Contraseña FROM alumnos WHERE Correo = %s",(correu,))
+            mycursos.execute("SELECT Contraseña FROM alumnos WHERE Correo = %s", (correu, ))
             myresult = mycursos.fetchall()
             if myresult:
                   for x in myresult:
