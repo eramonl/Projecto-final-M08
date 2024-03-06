@@ -90,7 +90,7 @@ def flask():
 @app.route('/ej1' ,methods = ['POST', 'GET'])
 def ej1():
    #if session.get('correu'):
-   return render_template('edad+100.py')
+   return render_template('ej1.html')
     #else:
    #   return render_template('Paguina_publica.html')
 
