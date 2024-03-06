@@ -31,6 +31,7 @@ app = Flask(__name__)
 
 @app.route('/getmail',methods = ['POST', 'GET'])
 def getmail():
+   #if session.get('correu'):
    if request.method == 'POST':
       modif=False
       contraseña = request.form['Contraseña']
@@ -55,29 +56,43 @@ def addmail():
       return render_template('Paguina_privada.html',contraseña = contraseña, correu=correu,  result_msg = result_msg)
    else:
       return render_template('addmail.html')
+      #else:
+   #   return render_template('Paguina_publica.html')
 
 @app.route('/',methods = ['POST', 'GET'])
 def paginaPublica():
-   if session.get('correu'):
-      return render_template('Paguina_privada.html', correu = session['correu'])
-   else:
+   #if session.get('correu'):
       return render_template('Paguina_publica.html')
+   #else:
+   #   return render_template('Paguina_publica.html')
 
 @app.route('/private' ,methods = ['POST', 'GET'])
 def paguinaprivada():
+   #if session.get('correu'):
    return render_template('Paguina_privada.html')
+   #else:
+   #   return render_template('Paguina_publica.html')
 
 @app.route('/patatas' ,methods = ['POST', 'GET'])
 def patatas():
+   #if session.get('correu'):
    return render_template('patatas.html')
+    #else:
+   #   return render_template('Paguina_publica.html')
 
 @app.route('/flask' ,methods = ['POST', 'GET'])
 def flask():
+   #if session.get('correu'):
    return render_template('Practicas_flask.html')
+    #else:
+   #   return render_template('Paguina_publica.html')
 
 @app.route('/ej1' ,methods = ['POST', 'GET'])
 def ej1():
+   #if session.get('correu'):
    return render_template('edad+100.py')
+    #else:
+   #   return render_template('Paguina_publica.html')
 
 
 @app.route('/logout')
@@ -85,6 +100,7 @@ def logout():
    if session.get('correu'):
       session.pop('correu',default=None)
    return redirect(url_for('paginaPublica'))
+
 
 if __name__ == '__main__':
    app.run(debug = True)
