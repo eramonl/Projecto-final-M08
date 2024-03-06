@@ -46,6 +46,7 @@ def getmail():
 
 @app.route('/addmail',methods = ['POST', 'GET'])
 def addmail():
+    #if session.get('correu'):
    if request.method == 'POST':
       modif=False
       contraseña = request.form['Contraseña']  #ull! si no ve, això acaba amb error
